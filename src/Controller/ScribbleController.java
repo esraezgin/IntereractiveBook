@@ -22,6 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -40,8 +41,6 @@ public class ScribbleController implements Initializable {
     private Button penButtton;
     @FXML
     private Button rubberButton;
-    @FXML
-    private Button shapesButton;
     @FXML
     private Pane projectTitlePane;
     @FXML
@@ -168,6 +167,8 @@ public class ScribbleController implements Initializable {
     private Button brown8;
     @FXML
     private Button brown10;
+    @FXML
+    private ImageView rectangle;
 
     /**
      * Initializes the controller class.
@@ -191,7 +192,7 @@ public class ScribbleController implements Initializable {
     private void penButtonAction(ActionEvent event) {
 
         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-        graphicsContext.setLineWidth(5);
+        graphicsContext.setLineWidth(2);
         menuCanvas.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -350,10 +351,6 @@ public class ScribbleController implements Initializable {
 
     }
 
-    @FXML
-    private void shapesButtonAction(ActionEvent event) {
-
-    }
 
     @FXML
     private void pink3ButtonAction(ActionEvent event) {
@@ -717,5 +714,6 @@ public class ScribbleController implements Initializable {
         graphicsContext.setStroke(Color.rgb(255, 255, 0));
 
     }
+
 
 }
