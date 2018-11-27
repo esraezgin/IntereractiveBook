@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="scribAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ScribbleController">
+   <children>
+      <Canvas fx:id="scribCanvas" height="645.0" width="915.0" />
+      <Button fx:id="exitScribButton" layoutX="849.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitScribButtonAction" text="Exit" textFill="#791f1f" />
+   </children>
+</AnchorPane>

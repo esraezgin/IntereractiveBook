@@ -5,11 +5,15 @@
  */
 package Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -21,7 +25,10 @@ import javafx.stage.Stage;
  */
 public class MainPageController implements Initializable {
 
-    Stage mainStage,otherStage;
+    Stage mainStage;
+    MainPageController maincontroller;
+    PaletController paletController;
+    
     @FXML
     private Pane mainPane;
     @FXML
@@ -40,7 +47,7 @@ public class MainPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-  
+
     }
 
     @FXML
@@ -49,16 +56,29 @@ public class MainPageController implements Initializable {
 
     @FXML
     private void scribbleButtonAction(ActionEvent event) {
+         Stage scribStage=(Stage)menuPane.getScene().getWindow();
+        
+        try {
+          FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/Scribble.fxml"));     
+          Parent root = loader.load();
+          Scene scene = new Scene(root);
+          scribStage.setScene(scene); 
+          scribStage.show();
+          paletController=(PaletController)loader.getController();
+          paletController.PaletControllers(maincontroller);
+          paletController.MenuCall(scribStage);
+        } catch (IOException ex) {
+            System.out.println(ex);;
+        }
     }
-
+   
     @FXML
     private void bookButtonAction(ActionEvent event) {
     }
 
     @FXML
-    private void exitButtonAction(ActionEvent event) {
+    private void exitButtonAction(ActionEvent event) throws IOException {
         mainStage = (Stage) exitButton.getScene().getWindow();
-        mainStage.close();
-    }
-
+          mainStage.close();
+    }  
 }
