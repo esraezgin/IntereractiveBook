@@ -17,7 +17,7 @@
                   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: #ffffff;" text="white_btn" textFill="TRANSPARENT" />
                   <Button layoutX="38.0" layoutY="14.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: #ffebe6;" text="Button" textFill="TRANSPARENT" />
                   <Button layoutX="62.0" layoutY="14.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: #ffccee;" text="Button" textFill="TRANSPARENT" />
-                  <Button layoutX="86.0" layoutY="14.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: #ff66cc;" text="Button" textFill="#00000006" />
+                  <Button fx:id="pink3Button" layoutX="86.0" layoutY="14.0" mnemonicParsing="false" onAction="#pink3ButtonAction" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: #ff66cc;" text="Button" textFill="#00000006" />
                   <Button layoutX="109.0" layoutY="14.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: #e60099;" text="Button" textFill="TRANSPARENT" />
                   <Button layoutX="133.0" layoutY="14.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: #ff0066;" text="Button" textFill="TRANSPARENT" />
                   <Button layoutX="157.0" layoutY="14.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="13.0" style="-fx-background-color: #ff6666;" text="Button" textFill="TRANSPARENT" />
@@ -77,13 +77,13 @@
                </children>
             </Pane>
             <Button fx:id="exitScribButton" layoutX="148.0" layoutY="129.0" mnemonicParsing="false" onAction="#exitScribButtonAction" prefHeight="105.0" prefWidth="121.0" text="Exit" textFill="#791f1f" />
-            <Pane fx:id="projectTitlePane" layoutY="429.0" prefHeight="43.0" prefWidth="283.0" style="-fx-background-color: blue;" />
+            <Pane fx:id="projectTitlePane" layoutY="429.0" prefHeight="49.0" prefWidth="283.0" style="-fx-background-color: blue;" />
          </children>
       </AnchorPane>
       <Pane layoutX="382.0" layoutY="133.0" prefHeight="200.0" prefWidth="200.0" />
       <Pane fx:id="pdfPane" layoutX="290.0" layoutY="4.0" prefHeight="638.0" prefWidth="622.0">
          <children>
-            <Canvas height="638.0" width="622.0" />
+            <Canvas fx:id="menuCanvas" height="638.0" width="622.0" />
          </children>
       </Pane>
    </children>

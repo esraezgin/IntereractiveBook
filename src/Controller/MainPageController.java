@@ -26,9 +26,7 @@ import javafx.stage.Stage;
 public class MainPageController implements Initializable {
 
     Stage mainStage;
-    MainPageController maincontroller;
-    PaletController paletController;
-    
+    MainPageController maincontroller;    
     @FXML
     private Pane mainPane;
     @FXML
@@ -63,10 +61,7 @@ public class MainPageController implements Initializable {
           Parent root = loader.load();
           Scene scene = new Scene(root);
           scribStage.setScene(scene); 
-          scribStage.show();
-          paletController=(PaletController)loader.getController();
-          paletController.PaletControllers(maincontroller);
-          paletController.MenuCall(scribStage);
+          scribStage.show();   
         } catch (IOException ex) {
             System.out.println(ex);;
         }
@@ -74,6 +69,7 @@ public class MainPageController implements Initializable {
    
     @FXML
     private void bookButtonAction(ActionEvent event) {
+       
     }
 
     @FXML
