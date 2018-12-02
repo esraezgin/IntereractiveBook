@@ -57,7 +57,7 @@ public class MainPageController implements Initializable {
          Stage scribStage=(Stage)menuPane.getScene().getWindow();
         
         try {
-          FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/Scribble.fxml"));     
+          FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/PaintBookMenu.fxml"));     
           Parent root = loader.load();
           Scene scene = new Scene(root);
           scribStage.setScene(scene); 

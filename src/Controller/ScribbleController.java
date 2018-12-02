@@ -1,12 +1,9 @@
-package Controller;
 
+package Controller;
 import java.awt.Rectangle;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,16 +14,11 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.stage.Stage;
 
 public class ScribbleController implements Initializable {
@@ -34,27 +26,19 @@ public class ScribbleController implements Initializable {
     @FXML
     private AnchorPane scribAnchorPane;
     @FXML
-    private Button exitScribButton;
-    @FXML
     private AnchorPane menuPanelPane;
     @FXML
     private Button penButtton;
     @FXML
     private Button rubberButton;
     @FXML
-    private Pane projectTitlePane;
-    @FXML
-    private Pane pdfPane;
-    @FXML
-    private Canvas menuCanvas;
-    @FXML
-    private Button pink3Button;
-    @FXML
     private Button whiteButton;
     @FXML
     private Button pink1Button;
     @FXML
     private Button pink2Button;
+    @FXML
+    private Button pink3Button;
     @FXML
     private Button pink4Button;
     @FXML
@@ -168,16 +152,42 @@ public class ScribbleController implements Initializable {
     @FXML
     private Button brown10;
     @FXML
-    private ImageView rectangle;
+    private Button exitScribButton;
+    @FXML
+    private Pane projectTitlePane;
+    @FXML
+    private Pane pdfPane;
+    @FXML
+    private Canvas menuCanvas;
+    @FXML
+    private Button twoSize;
+    @FXML
+    private Button sixSize;
+    @FXML
+    private Button tenSize;
+    @FXML
+    private Button fourtteenSize;
+    @FXML
+    private Button eightteenSize;
+    @FXML
+    private Button twelvetwoSize;
+    @FXML
+    private Button lineButton;
+    @FXML
+    private Button circleButton;
+    @FXML
+    private Button ellipseButton;
+    @FXML
+    private Button rectButton;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    }
-
-    @FXML
+        // TODO
+    }    
+@FXML
     private void exitScribButtonAction(ActionEvent event) throws IOException {
 
         Stage scribStage = (Stage) exitScribButton.getScene().getWindow();
@@ -192,14 +202,12 @@ public class ScribbleController implements Initializable {
     private void penButtonAction(ActionEvent event) {
 
         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-        graphicsContext.setLineWidth(2);
         menuCanvas.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 graphicsContext.beginPath();
                 graphicsContext.moveTo(event.getX(), event.getY());
                 graphicsContext.stroke();
-               
 
             }
         });
@@ -715,5 +723,82 @@ public class ScribbleController implements Initializable {
 
     }
 
+    @FXML
+    private void twoSizeAction(ActionEvent event) {
+         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+          graphicsContext.setLineWidth(2);
+    }
+
+    @FXML
+    private void sixSizeAction(ActionEvent event) {
+        GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+          graphicsContext.setLineWidth(6);
+    }
+
+    @FXML
+    private void tenSizeAction(ActionEvent event) {
+        GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+          graphicsContext.setLineWidth(10);
+    }
+
+    @FXML
+    private void fourtteenSizeAction(ActionEvent event) {
+        GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+          graphicsContext.setLineWidth(14);
+    }
+
+    @FXML
+    private void eightteenSizeAction(ActionEvent event) {
+        GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+          graphicsContext.setLineWidth(18);
+    }
+
+    @FXML
+    private void twelvetwoSizeAction(ActionEvent event) {
+        GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+          graphicsContext.setLineWidth(22);
+    }
+
+    @FXML
+    private void lineButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void circleButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void ellipseButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void rectButtonAction(ActionEvent event) {
+         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+         Rectangle rect=new Rectangle();
+         
+          menuCanvas.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {       
+                   graphicsContext.rect(event.getX(),event.getY(), 0, 0);
+                   graphicsContext.stroke();
+            }
+        });
+            menuCanvas.addEventHandler(MouseEvent.MOUSE_DRAGGED,
+                new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                
+               double setX=event.getSceneX()-event.getX();
+               double setY=event.getScreenY()-event.getY();                
+              graphicsContext.rect(event.getX(),event.getY(),setX,setY);
+              graphicsContext.stroke();
+              graphicsContext.closePath();
+               graphicsContext.rect(event.getX(),event.getY(),setX,setY);
+            }
+        });
+         
+        
+    }
 
 }
+
