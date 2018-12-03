@@ -8,11 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="InteractiveBook.jar" size="40855" download="eager" />
+    <jar href="InteractiveBook.jar" size="38325" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="InteractiveBook" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="ýnteractivebook.InteractiveBook"  name="InteractiveBook" />
+  <jfx:javafx-desc  width="800" height="600" main-class="ýnteractivebook.Starter"  name="InteractiveBook" />
   <update check="always"/>
 </jnlp>

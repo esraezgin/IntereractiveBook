@@ -1,24 +1,33 @@
-
 package Controller;
+import  ınteractivebook.ImageObject;
 import java.awt.Rectangle;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class ScribbleController implements Initializable {
@@ -179,15 +188,36 @@ public class ScribbleController implements Initializable {
     private Button ellipseButton;
     @FXML
     private Button rectButton;
+    private ImageView imageView;
+     javafx.scene.shape.Rectangle rect;
+    SimpleDoubleProperty rectinitX = new SimpleDoubleProperty();
+    SimpleDoubleProperty rectinitY = new SimpleDoubleProperty();
+    SimpleDoubleProperty rectX = new SimpleDoubleProperty();
+    SimpleDoubleProperty rectY = new SimpleDoubleProperty();
+    @FXML
+    private Button nextButtonImage;
+    @FXML
+    private Button bakcButtonImage;
+    public int count = 0;
+    @FXML
+    private ImageView img;
+    
+    public ArrayList<String> list;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-@FXML
+        
+        ImageObject ima=new ImageObject();
+        list =ima.list;
+        Image image = new Image(list.get(count));
+        img.setImage(image);
+
+    }
+
+    @FXML
     private void exitScribButtonAction(ActionEvent event) throws IOException {
 
         Stage scribStage = (Stage) exitScribButton.getScene().getWindow();
@@ -196,6 +226,13 @@ public class ScribbleController implements Initializable {
         Scene scene = new Scene(root);
         scribStage.setScene(scene);
         scribStage.show();
+    }
+
+    @FXML
+    private void rubberbuttonAction(ActionEvent event) {
+        GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+        graphicsContext.clearRect(0, 0, menuCanvas.getWidth(), menuCanvas.getHeight());
+
     }
 
     @FXML
@@ -353,12 +390,6 @@ public class ScribbleController implements Initializable {
         }
 
     }
-
-    @FXML
-    private void rubberbuttonAction(ActionEvent event) {
-
-    }
-
 
     @FXML
     private void pink3ButtonAction(ActionEvent event) {
@@ -725,38 +756,38 @@ public class ScribbleController implements Initializable {
 
     @FXML
     private void twoSizeAction(ActionEvent event) {
-         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-          graphicsContext.setLineWidth(2);
+        GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
+        graphicsContext.setLineWidth(2);
     }
 
     @FXML
     private void sixSizeAction(ActionEvent event) {
         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-          graphicsContext.setLineWidth(6);
+        graphicsContext.setLineWidth(6);
     }
 
     @FXML
     private void tenSizeAction(ActionEvent event) {
         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-          graphicsContext.setLineWidth(10);
+        graphicsContext.setLineWidth(10);
     }
 
     @FXML
     private void fourtteenSizeAction(ActionEvent event) {
         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-          graphicsContext.setLineWidth(14);
+        graphicsContext.setLineWidth(14);
     }
 
     @FXML
     private void eightteenSizeAction(ActionEvent event) {
         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-          graphicsContext.setLineWidth(18);
+        graphicsContext.setLineWidth(18);
     }
 
     @FXML
     private void twelvetwoSizeAction(ActionEvent event) {
         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-          graphicsContext.setLineWidth(22);
+        graphicsContext.setLineWidth(22);
     }
 
     @FXML
@@ -765,40 +796,89 @@ public class ScribbleController implements Initializable {
 
     @FXML
     private void circleButtonAction(ActionEvent event) {
+  
+       
+     
     }
 
     @FXML
     private void ellipseButtonAction(ActionEvent event) {
     }
 
+   
+
     @FXML
-    private void rectButtonAction(ActionEvent event) {
-         GraphicsContext graphicsContext = menuCanvas.getGraphicsContext2D();
-         Rectangle rect=new Rectangle();
-         
-          menuCanvas.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {       
-                   graphicsContext.rect(event.getX(),event.getY(), 0, 0);
-                   graphicsContext.stroke();
-            }
-        });
-            menuCanvas.addEventHandler(MouseEvent.MOUSE_DRAGGED,
-                new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                
-               double setX=event.getSceneX()-event.getX();
-               double setY=event.getScreenY()-event.getY();                
-              graphicsContext.rect(event.getX(),event.getY(),setX,setY);
-              graphicsContext.stroke();
-              graphicsContext.closePath();
-               graphicsContext.rect(event.getX(),event.getY(),setX,setY);
-            }
-        });
-         
-        
+    private void nextButtonImageAction(ActionEvent event) {
+       
+        Image image = new Image(list.get(count));
+        img.setImage(image);
+        if (list.size() - 1 == count) {
+            Alert alert = new Alert(AlertType.ERROR, "Listeyi aştınız", ButtonType.OK);
+            alert.showAndWait();
+        } else {
+            count++;
+        }
+
     }
 
-}
+    @FXML
+    private void bakcButtonImageAction(ActionEvent event) {
+
+        Image image = new Image(list.get(count));
+        img.setImage(image);
+
+        if (0 == count) {
+            Alert alert = new Alert(AlertType.ERROR, "Listeyi aştınız", ButtonType.OK);
+            alert.showAndWait();}
+             else {
+                count--;
+            }
+        }
+     @FXML
+    private void rectButtonAction(ActionEvent event) {
+        /*Stage stage=(Stage)menuPanelPane.getScene().getWindow();
+        rect = getNewRectangle();
+        rect.widthProperty().bind(rectX.subtract(rectinitX));
+        rect.heightProperty().bind(rectY.subtract(rectinitY));
+        menuPanelPane.getChildren().add(rect);
+        EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
+
+        @Override
+        public void handle(MouseEvent mouseEvent) {
+
+            if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
+                rect.setX(mouseEvent.getX());
+                rect.setY(mouseEvent.getY());
+                rectinitX.set(mouseEvent.getX());
+                rectinitY.set(mouseEvent.getY());
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+                rectX.set(mouseEvent.getX());
+                rectY.set(mouseEvent.getY());
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
+                // Clone the rectangle
+                javafx.scene.shape.Rectangle r = getNewRectangle();
+                r.setX(rect.getX());
+                r.setY(rect.getY());
+                r.setWidth(rect.getWidth());
+                r.setHeight(rect.getHeight());
+                menuPanelPane.getChildren().add(r);
+
+                // Hide the rectangle
+                rectX.set(0);
+                rectY.set(0);
+            }
+        }
+    };
+       */ 
+    }
+    //Rectangle tekrar bakılcak..
+     /*private javafx.scene.shape.Rectangle getNewRectangle() {
+        javafx.scene.shape.Rectangle r = new javafx.scene.shape.Rectangle();
+        r.setFill(Color.web("black", 0.1));
+        r.setStroke(Color.BLACK);
+        r.setArcHeight(40);
+        r.setArcWidth(40);
+        return r;*/
+    }
+
 

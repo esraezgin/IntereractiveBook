@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class InteractiveBook extends Application {
+public class Starter extends Application {
 
     static MainPageController mainController;
 
