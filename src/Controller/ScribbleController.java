@@ -190,6 +190,7 @@ public class ScribbleController implements Initializable {
     private Button rectButton;
     private ImageView imageView;
      javafx.scene.shape.Rectangle rect;
+     javafx.scene.shape.Circle circle;
     SimpleDoubleProperty rectinitX = new SimpleDoubleProperty();
     SimpleDoubleProperty rectinitY = new SimpleDoubleProperty();
     SimpleDoubleProperty rectX = new SimpleDoubleProperty();
@@ -796,13 +797,19 @@ public class ScribbleController implements Initializable {
 
     @FXML
     private void circleButtonAction(ActionEvent event) {
-  
-       
-     
+        Stage stage=(Stage)pdfPane.getScene().getWindow();
+        pdfPane=new Pane();
+        Scene scene = new Scene(pdfPane, 800, 600);
+          stage.setScene(scene);
+        scene.setOnMouseDragged(mouseHandler);
+        scene.setOnMousePressed(mouseHandler);
+        scene.setOnMouseReleased(mouseHandler);
+
     }
 
     @FXML
     private void ellipseButtonAction(ActionEvent event) {
+      
     }
 
    
@@ -836,11 +843,26 @@ public class ScribbleController implements Initializable {
         }
      @FXML
     private void rectButtonAction(ActionEvent event) {
-        /*Stage stage=(Stage)menuPanelPane.getScene().getWindow();
+        Stage stage=(Stage)pdfPane.getScene().getWindow();
+        pdfPane=new Pane();
+       // Scene scene = new Scene(pdfPane, 800, 600);
+      //  stage.setScene(scene);
+        pdfPane.setOnMouseDragged(mouseHandler);
+        pdfPane.setOnMousePressed(mouseHandler);
+        pdfPane.setOnMouseReleased(mouseHandler);
         rect = getNewRectangle();
         rect.widthProperty().bind(rectX.subtract(rectinitX));
         rect.heightProperty().bind(rectY.subtract(rectinitY));
-        menuPanelPane.getChildren().add(rect);
+        pdfPane.getChildren().add(rect);
+        }
+    
+    private javafx.scene.shape.Rectangle getNewRectangle() {
+        javafx.scene.shape.Rectangle r = new javafx.scene.shape.Rectangle();
+        r.setFill(Color.web("black", 0.1));
+        r.setStroke(Color.BLACK);
+        return r;
+    }
+    
         EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
 
         @Override
@@ -861,24 +883,17 @@ public class ScribbleController implements Initializable {
                 r.setY(rect.getY());
                 r.setWidth(rect.getWidth());
                 r.setHeight(rect.getHeight());
-                menuPanelPane.getChildren().add(r);
-
+                pdfPane.getChildren().add(r);
                 // Hide the rectangle
                 rectX.set(0);
                 rectY.set(0);
             }
         }
     };
-       */ 
+
+    private Circle getNewCircle() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    //Rectangle tekrar bakılcak..
-     /*private javafx.scene.shape.Rectangle getNewRectangle() {
-        javafx.scene.shape.Rectangle r = new javafx.scene.shape.Rectangle();
-        r.setFill(Color.web("black", 0.1));
-        r.setStroke(Color.BLACK);
-        r.setArcHeight(40);
-        r.setArcWidth(40);
-        return r;*/
-    }
+}
 
 

@@ -12,8 +12,8 @@ public class ImageObject {
    public ArrayList<String> list = new ArrayList<>();
 
     public ImageObject() {
-         list.add("Image/circle.png");
-        list.add("Image/ellipse.png");
+         list.add("Image/boyama1.jpg");
+        list.add("Image/ari.jpg");
         list.add("Image/exitgo.png");
         list.add("Image/line.png");
         list.add("Image/pen.png");
