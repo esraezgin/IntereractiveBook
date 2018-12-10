@@ -1,3 +1,4 @@
+
 package Controller;
 import  ınteractivebook.ImageObject;
 import java.awt.Rectangle;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -28,6 +30,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 
 public class ScribbleController implements Initializable {
@@ -180,14 +185,6 @@ public class ScribbleController implements Initializable {
     private Button eightteenSize;
     @FXML
     private Button twelvetwoSize;
-    @FXML
-    private Button lineButton;
-    @FXML
-    private Button circleButton;
-    @FXML
-    private Button ellipseButton;
-    @FXML
-    private Button rectButton;
     private ImageView imageView;
      javafx.scene.shape.Rectangle rect;
      javafx.scene.shape.Circle circle;
@@ -207,6 +204,8 @@ public class ScribbleController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -217,7 +216,29 @@ public class ScribbleController implements Initializable {
         img.setImage(image);
 
     }
-
+        @FXML
+    private void nextButtonImageAction(ActionEvent event) {
+       
+        Image image = new Image(list.get(count));
+        img.setImage(image);
+        if (list.size() - 1 == count) {
+            Alert alert = new Alert(AlertType.ERROR, "Listeyi aştınız", ButtonType.OK);
+            alert.showAndWait();
+        } else {
+            count++;
+        }
+    }
+    @FXML
+    private void bakcButtonImageAction(ActionEvent event) {
+        Image image = new Image(list.get(count));
+        img.setImage(image);
+        if (0 == count) {
+            Alert alert = new Alert(AlertType.ERROR, "Listeyi aştınız", ButtonType.OK);
+            alert.showAndWait();}
+             else {
+                count--;
+            }
+        }
     @FXML
     private void exitScribButtonAction(ActionEvent event) throws IOException {
 
@@ -791,111 +812,8 @@ public class ScribbleController implements Initializable {
         graphicsContext.setLineWidth(22);
     }
 
-    @FXML
-    private void lineButtonAction(ActionEvent event) {
-    }
-
-    @FXML
-    private void circleButtonAction(ActionEvent event) {
-        circle=new Circle();
-       
-        Stage stage=(Stage)pdfPane.getScene().getWindow();
-        pdfPane=new Pane();
-        Scene scene = new Scene(pdfPane, 800, 600);
-          stage.setScene(scene);
-        scene.setOnMouseDragged(mouseHandler);
-        scene.setOnMousePressed(mouseHandler);
-        scene.setOnMouseReleased(mouseHandler);
-
-    }
-
-    @FXML
-    private void ellipseButtonAction(ActionEvent event) {
-      
-    }
 
    
-
-    @FXML
-    private void nextButtonImageAction(ActionEvent event) {
-       
-        Image image = new Image(list.get(count));
-        img.setImage(image);
-        if (list.size() - 1 == count) {
-            Alert alert = new Alert(AlertType.ERROR, "Listeyi aştınız", ButtonType.OK);
-            alert.showAndWait();
-        } else {
-            count++;
-        }
-
-    }
-
-    @FXML
-    private void bakcButtonImageAction(ActionEvent event) {
-
-        Image image = new Image(list.get(count));
-        img.setImage(image);
-
-        if (0 == count) {
-            Alert alert = new Alert(AlertType.ERROR, "Listeyi aştınız", ButtonType.OK);
-            alert.showAndWait();}
-             else {
-                count--;
-            }
-        }
-     @FXML
-    private void rectButtonAction(ActionEvent event) {
-        Stage stage=(Stage)pdfPane.getScene().getWindow();
-        pdfPane=new Pane();
-       // Scene scene = new Scene(pdfPane, 800, 600);
-      //  stage.setScene(scene);
-        pdfPane.setOnMouseDragged(mouseHandler);
-        pdfPane.setOnMousePressed(mouseHandler);
-        pdfPane.setOnMouseReleased(mouseHandler);
-        rect = getNewRectangle();
-        rect.widthProperty().bind(rectX.subtract(rectinitX));
-        rect.heightProperty().bind(rectY.subtract(rectinitY));
-        pdfPane.getChildren().add(rect);
-        }
-    
-    private javafx.scene.shape.Rectangle getNewRectangle() {
-        javafx.scene.shape.Rectangle r = new javafx.scene.shape.Rectangle();
-        r.setFill(Color.web("black", 0.1));
-        r.setStroke(Color.BLACK);
-        return r;
-    }
-    
-        EventHandler<MouseEvent> mouseHandler = new EventHandler<MouseEvent>() {
-
-        @Override
-        public void handle(MouseEvent mouseEvent) {
-
-            if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
-                rect.setX(mouseEvent.getX());
-                rect.setY(mouseEvent.getY());
-                rectinitX.set(mouseEvent.getX());
-                rectinitY.set(mouseEvent.getY());
-            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_DRAGGED) {
-                rectX.set(mouseEvent.getX());
-                rectY.set(mouseEvent.getY());
-            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
-                // Clone the rectangle
-                javafx.scene.shape.Rectangle r = getNewRectangle();
-                r.setX(rect.getX());
-                r.setY(rect.getY());
-                r.setWidth(rect.getWidth());
-                r.setHeight(rect.getHeight());
-                pdfPane.getChildren().add(r);
-                // Hide the rectangle
-                rectX.set(0);
-                rectY.set(0);
-            }
-        }
-    };
-
-    private Circle getNewCircle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
 
 

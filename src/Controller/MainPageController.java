@@ -48,6 +48,17 @@ public class MainPageController implements Initializable {
    
     @FXML
     private void bookButtonAction(ActionEvent event) {
+                   Stage scribStage=(Stage)menuPane.getScene().getWindow();
+        
+        try {
+          FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/BookMenu.fxml"));     
+          Parent root = loader.load();
+          Scene scene = new Scene(root);
+          scribStage.setScene(scene); 
+          scribStage.show();   
+        } catch (IOException ex) {
+            System.out.println(ex);;
+        }
        
     }
 

@@ -19,8 +19,8 @@ public class ImageObject {
          list.add("Image/balık.jpg");
          list.add("Image/aile.jpg");
          list.add("Image/dinazor.jpg");
-        list.add("Image/meyve.jpg");
-        list.add("Image/cöl.jpg");
+         list.add("Image/meyve.jpg");
+         list.add("Image/cöl.jpg");
     }  
     
 }

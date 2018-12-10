@@ -9,25 +9,48 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="mainPane" accessibleRole="PAGE_ITEM" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainPageController">
+<Pane fx:id="mainPane" accessibleRole="PAGE_ITEM" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="900.0" style="-fx-background-color: #ffebe6;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainPageController">
    <children>
-      <Pane fx:id="menuPane" layoutX="163.0" layoutY="116.0" prefHeight="219.0" prefWidth="610.0" style="-fx-background-color: pink;">
+      <Pane fx:id="menuPane" layoutX="209.0" layoutY="116.0" prefHeight="243.0" prefWidth="494.0" style="-fx-background-color: pink;">
          <children>
-            <Button fx:id="scribButton" layoutX="35.0" layoutY="89.0" mnemonicParsing="false" onAction="#scribButtonAction" prefHeight="38.0" prefWidth="153.0" text="Scribble" />
-            <Button fx:id="PaintingButton" layoutX="436.0" layoutY="89.0" mnemonicParsing="false" onAction="#PaintingButtonAction" prefHeight="38.0" prefWidth="153.0" text="Painting" />
-            <Button fx:id="bookButton" layoutX="228.0" layoutY="89.0" mnemonicParsing="false" onAction="#bookButtonAction" prefHeight="38.0" prefWidth="153.0" text="Book" />
-         </children>
-      </Pane>
-      <Pane layoutX="236.0" layoutY="424.0" prefHeight="64.0" prefWidth="464.0">
-         <children>
-            <Text fill="#742171" fontSmoothingType="LCD" layoutX="66.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esra ve Zeynep" textAlignment="CENTER" wrappingWidth="345.33673095703125">
+            <Button fx:id="PaintingButton" layoutX="258.0" layoutY="62.0" mnemonicParsing="false" onAction="#PaintingButtonAction" prefHeight="107.0" prefWidth="162.0" style="-fx-background-color: #ffebe6;">
+               <graphic>
+                  <ImageView fitHeight="95.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/painting.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="bookButton" layoutX="40.0" layoutY="56.0" mnemonicParsing="false" onAction="#bookButtonAction" prefHeight="107.0" prefWidth="162.0" style="-fx-background-color: #ffebe6;">
+               <graphic>
+                  <ImageView fitHeight="102.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/book.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Text layoutX="146.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOOK" wrappingWidth="55.133544921875">
                <font>
-                  <Font name="Gabriola" size="41.0" />
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text layoutX="330.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAINTING">
+               <font>
+                  <Font size="18.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Button fx:id="exitButton" layoutX="338.0" layoutY="565.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="64.0" prefWidth="246.0" style="-fx-background-color: red;" text="Exit" textAlignment="JUSTIFY">
+      <Pane layoutX="144.0" layoutY="407.0" prefHeight="81.0" prefWidth="601.0">
+         <children>
+            <Text fill="#742171" fontSmoothingType="LCD" layoutX="78.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INTERACTIVE BOOK" textAlignment="CENTER" wrappingWidth="459.7366943359375">
+               <font>
+                  <Font name="Gabriola" size="51.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Button fx:id="exitButton" layoutX="333.0" layoutY="533.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="64.0" prefWidth="246.0" style="-fx-background-color: #e6005c;" text="Exit" textAlignment="JUSTIFY">
          <font>
             <Font name="Gabriola" size="33.0" />
          </font>
@@ -35,7 +58,7 @@
             <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
          </padding>
       </Button>
-      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="394.0" layoutY="578.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="391.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Image/exit.png" />
          </image>
