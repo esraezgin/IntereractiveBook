@@ -13,8 +13,8 @@
    <children>
       <Pane fx:id="menuPane" layoutX="163.0" layoutY="116.0" prefHeight="219.0" prefWidth="610.0" style="-fx-background-color: pink;">
          <children>
-            <Button fx:id="paintingBook" layoutX="35.0" layoutY="89.0" mnemonicParsing="false" onAction="#paintingBookAction" prefHeight="38.0" prefWidth="153.0" text="Painting" />
-            <Button fx:id="scribbleButton" layoutX="436.0" layoutY="89.0" mnemonicParsing="false" onAction="#scribbleButtonAction" prefHeight="38.0" prefWidth="153.0" text="Scribble" />
+            <Button fx:id="scribButton" layoutX="35.0" layoutY="89.0" mnemonicParsing="false" onAction="#scribButtonAction" prefHeight="38.0" prefWidth="153.0" text="Scribble" />
+            <Button fx:id="PaintingButton" layoutX="436.0" layoutY="89.0" mnemonicParsing="false" onAction="#PaintingButtonAction" prefHeight="38.0" prefWidth="153.0" text="Painting" />
             <Button fx:id="bookButton" layoutX="228.0" layoutY="89.0" mnemonicParsing="false" onAction="#bookButtonAction" prefHeight="38.0" prefWidth="153.0" text="Book" />
          </children>
       </Pane>

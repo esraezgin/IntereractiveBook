@@ -28,13 +28,13 @@ public class MainPageController implements Initializable {
     @FXML
     private Pane menuPane;
     @FXML
-    private Button paintingBook;
-    @FXML
-    private Button scribbleButton;
-    @FXML
     private Button bookButton;
     @FXML
     private Button exitButton;
+    @FXML
+    private Button scribButton;
+    @FXML
+    private Button PaintingButton;
 
     /**
      * Initializes the controller class.
@@ -44,24 +44,7 @@ public class MainPageController implements Initializable {
 
     }
 
-    @FXML
-    private void paintingBookAction(ActionEvent event) {
-    }
 
-    @FXML
-    private void scribbleButtonAction(ActionEvent event) {
-         Stage scribStage=(Stage)menuPane.getScene().getWindow();
-        
-        try {
-          FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/PaintBookMenu.fxml"));     
-          Parent root = loader.load();
-          Scene scene = new Scene(root);
-          scribStage.setScene(scene); 
-          scribStage.show();   
-        } catch (IOException ex) {
-            System.out.println(ex);;
-        }
-    }
    
     @FXML
     private void bookButtonAction(ActionEvent event) {
@@ -73,4 +56,24 @@ public class MainPageController implements Initializable {
         mainStage = (Stage) exitButton.getScene().getWindow();
           mainStage.close();
     }  
+
+    @FXML
+    private void scribButtonAction(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void PaintingButtonAction(ActionEvent event) {
+           Stage scribStage=(Stage)menuPane.getScene().getWindow();
+        
+        try {
+          FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/PaintBookMenu.fxml"));     
+          Parent root = loader.load();
+          Scene scene = new Scene(root);
+          scribStage.setScene(scene); 
+          scribStage.show();   
+        } catch (IOException ex) {
+            System.out.println(ex);;
+        }
+    }
 }

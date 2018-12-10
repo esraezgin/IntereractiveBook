@@ -797,6 +797,8 @@ public class ScribbleController implements Initializable {
 
     @FXML
     private void circleButtonAction(ActionEvent event) {
+        circle=new Circle();
+       
         Stage stage=(Stage)pdfPane.getScene().getWindow();
         pdfPane=new Pane();
         Scene scene = new Scene(pdfPane, 800, 600);
