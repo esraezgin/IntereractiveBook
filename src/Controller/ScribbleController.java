@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -28,6 +29,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 
 public class ScribbleController implements Initializable {
@@ -797,19 +801,78 @@ public class ScribbleController implements Initializable {
 
     @FXML
     private void circleButtonAction(ActionEvent event) {
-        Stage stage=(Stage)pdfPane.getScene().getWindow();
+        
+       Stage stage=(Stage)pdfPane.getScene().getWindow();
+        /*  Stage stage=(Stage)pdfPane.getScene().getWindow();
         pdfPane=new Pane();
         Scene scene = new Scene(pdfPane, 800, 600);
           stage.setScene(scene);
         scene.setOnMouseDragged(mouseHandler);
         scene.setOnMousePressed(mouseHandler);
-        scene.setOnMouseReleased(mouseHandler);
+        scene.setOnMouseReleased(mouseHandler);*/
 
+     //Drawing a Circle 
+      Circle circle = new Circle(); 
+         
+      circle.setCenterX(300.0f); 
+      circle.setCenterY(135.0f); 
+      circle.setRadius(100.0f); 
+      
+       Group root = new Group(circle);          
+      Scene scene = new Scene(root, 600, 300);          
+      stage.setTitle("Drawing a Circle");          
+      stage.setScene(scene);          
+      stage.show();
+      
+      
+       //daire / içi dolu daire
+       /*
+        Pane root = new Pane();
+        Stage stage=(Stage)pdfPane.getScene().getWindow();
+        Canvas canvas = new Canvas(300, 300);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setStroke(Color.FORESTGREEN.brighter());
+        gc.setLineWidth(5);
+        gc.strokeOval(30, 30, 80, 80);        
+        gc.setFill(Color.FORESTGREEN);
+        gc.fillOval(130, 30, 80, 80);
+        
+        root.getChildren().add(canvas);    
+
+        Scene scene = new Scene(root, 300, 250, Color.WHITESMOKE);
+
+        stage.setTitle("Stroke and fill");
+        stage.setScene(scene);
+        stage.show();
+        */
+        
     }
 
     @FXML
     private void ellipseButtonAction(ActionEvent event) {
       
+        //yıldız
+    
+        Stage stage=(Stage)pdfPane.getScene().getWindow();
+        Path path = new Path(); 
+      MoveTo moveTo = new MoveTo(108, 71); 
+      
+      LineTo line1 = new LineTo(321, 161);  
+      LineTo line2 = new LineTo(126,232);             
+      LineTo line3 = new LineTo(232,52);  
+      LineTo line4 = new LineTo(269, 250);   
+      LineTo line5 = new LineTo(108, 71);  
+      path.getElements().add(moveTo); 
+      path.getElements().addAll(line1, line2, line3, line4, line5);        
+         
+      Group root = new Group(path); 
+      Scene scene = new Scene(root, 600, 300);  
+      stage.setTitle("yıldız");
+      stage.setScene(scene);
+      stage.show();  
+        
+    
+   
     }
 
    
