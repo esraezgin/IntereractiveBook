@@ -63,23 +63,27 @@ public class BookMenuController implements Initializable {
     @FXML
     private Button green1;
 
+    @FXML
     private ImageView img2;
     public int count = 0;
-    public ArrayList <String> list2;
+    public ArrayList<String> list2;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         BookImageObj resim=new BookImageObj();
-         list2 =resim.listBook;
+        System.out.print("finish initilize");
+        BookImageObj resim = new BookImageObj();
+        list2 = resim.listBook;
         Image image = new Image(list2.get(count));
         img2.setImage(image);
+        System.out.print("finish initilize");
     }
-     @FXML
+
+    @FXML
     private void nextPageButtonAction(ActionEvent event) {
-          
+
         Image image = new Image(list2.get(count));
         img2.setImage(image);
         if (list2.size() - 1 == count) {
@@ -89,17 +93,17 @@ public class BookMenuController implements Initializable {
             count++;
         }
     }
-     @FXML
+
+    @FXML
     private void backPageButtonAction(ActionEvent event) {
         Image image = new Image(list2.get(count));
         img2.setImage(image);
-
         if (0 == count) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Listeyi aştınız", ButtonType.OK);
-            alert.showAndWait();}
-             else {
-                count--;
-            }
+            alert.showAndWait();
+        } else {
+            count--;
+        }
     }
 
     @FXML
@@ -151,7 +155,6 @@ public class BookMenuController implements Initializable {
         scribStage.show();
     }
 
-
     @FXML
     private void blueAct(ActionEvent event) {
         GraphicsContext graphicsContext = bookCanvas.getGraphicsContext2D();
@@ -170,5 +173,4 @@ public class BookMenuController implements Initializable {
         graphicsContext.setStroke(Color.rgb(51, 204, 51));
     }
 
-   
 }

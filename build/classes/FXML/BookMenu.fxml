@@ -62,6 +62,7 @@
       </AnchorPane>
       <Pane fx:id="bookPane" layoutX="281.0" layoutY="-1.0" prefHeight="597.0" prefWidth="517.0">
          <children>
+            <ImageView fx:id="img2" fitHeight="597.0" fitWidth="506.0" layoutX="6.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
             <Canvas fx:id="bookCanvas" height="580.0" layoutX="-8.0" layoutY="2.0" width="518.0" />
          </children>
       </Pane>
