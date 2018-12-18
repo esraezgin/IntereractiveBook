@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import java.awt.Window;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -32,8 +34,6 @@ public class MainPageController implements Initializable {
     @FXML
     private Button exitButton;
     @FXML
-    private Button scribButton;
-    @FXML
     private Button PaintingButton;
 
     /**
@@ -41,6 +41,8 @@ public class MainPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       
+        mainPane.setMaxSize(1000, 1000);
 
     }
 
@@ -48,13 +50,13 @@ public class MainPageController implements Initializable {
    
     @FXML
     private void bookButtonAction(ActionEvent event) {
-                   Stage scribStage=(Stage)menuPane.getScene().getWindow();
+        Stage scribStage=(Stage)menuPane.getScene().getWindow();
         
         try {
           FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/BookMenu.fxml"));     
           Parent root = loader.load();
           Scene scene = new Scene(root);
-          scribStage.setScene(scene); 
+          scribStage.setScene(scene);    
           scribStage.show();   
         } catch (IOException ex) {
             System.out.println(ex);;
@@ -69,13 +71,8 @@ public class MainPageController implements Initializable {
     }  
 
     @FXML
-    private void scribButtonAction(ActionEvent event) {
-        
-    }
-
-    @FXML
     private void PaintingButtonAction(ActionEvent event) {
-           Stage scribStage=(Stage)menuPane.getScene().getWindow();
+     Stage scribStage=(Stage)menuPane.getScene().getWindow();
         
         try {
           FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/PaintBookMenu.fxml"));     
@@ -86,5 +83,6 @@ public class MainPageController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex);;
         }
+       
     }
 }

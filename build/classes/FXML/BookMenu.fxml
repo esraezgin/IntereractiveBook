@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BookMenuController">
    <children>
-      <AnchorPane fx:id="menuPanelPane" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="282.0" prefWidth="290.0" style="-fx-background-color: #ffebe6;">
+      <AnchorPane fx:id="menuPanelPane" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="290.0" style="-fx-background-color: #ffebe6;">
          <children>
             <Button fx:id="penButtton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#penButtonAction" prefHeight="84.0" prefWidth="118.0" style="-fx-background-color: #ffb3b3;">
                <graphic>
@@ -40,7 +40,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Pane fx:id="projectTitlePane" layoutX="4.0" layoutY="255.0" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: #d9b38c;">
+            <Pane fx:id="projectTitlePane" layoutX="3.0" layoutY="319.0" prefHeight="26.0" prefWidth="283.0" style="-fx-background-color: #d9b38c;">
                <children>
                   <Text fill="#713838" fontSmoothingType="LCD" layoutX="109.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Interactive Book">
                      <font>
@@ -58,6 +58,7 @@
                   <Button fx:id="green1" layoutX="81.0" layoutY="9.0" mnemonicParsing="false" onAction="#greenAct" prefHeight="26.0" prefWidth="23.0" style="-fx-background-color: #33cc33;" />
                </children>
             </Pane>
+            <Button fx:id="wordButton" layoutX="119.0" layoutY="263.0" mnemonicParsing="false" onAction="#wordButtonAction" style="-fx-background-color: #ffb3b3;" text="Words" />
          </children>
       </AnchorPane>
       <Pane fx:id="bookPane" layoutX="281.0" layoutY="-1.0" prefHeight="597.0" prefWidth="517.0">

@@ -67,6 +67,8 @@ public class BookMenuController implements Initializable {
     private ImageView img2;
     public int count = 0;
     public ArrayList<String> list2;
+    @FXML
+    private Button wordButton;
 
     /**
      * Initializes the controller class.
@@ -173,4 +175,21 @@ public class BookMenuController implements Initializable {
         graphicsContext.setStroke(Color.rgb(51, 204, 51));
     }
 
-}
+    @FXML
+    private void wordButtonAction(ActionEvent event) {
+             Stage scribStage=(Stage)menuPanelPane.getScene().getWindow();
+       
+        try {
+          FXMLLoader loader =new FXMLLoader(getClass().getResource("/FXML/word.fxml"));     
+          Parent root = loader.load();
+          Scene scene = new Scene(root);
+          scribStage.setScene(scene); 
+          scribStage.show();   
+        } catch (IOException ex) {
+            System.out.println(ex);;
+        }
+       
+    }
+    }
+
+

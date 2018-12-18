@@ -64,7 +64,4 @@
          </image>
       </ImageView>
    </children>
-   <cursor>
-      <Cursor fx:constant="HAND" />
-   </cursor>
 </Pane>
